@@ -22,9 +22,6 @@ void StampaArrayInteri(int[]array)
     Console.WriteLine($" [ {risultato} ] ");
 };
 
-
-
-
 //int Quadrato(int numero): che vi restituisca il quadrato del numero passato come parametro.
 
 int Quadrato (int numero)
@@ -37,7 +34,20 @@ Console.WriteLine(Quadrato(3));
 //int[] ElevaArrayAlQuadrato(int[] array): che preso un array di numeri interi, restituisca un
 //nuovo array con tutti gli elementi elevati quadrato.
 
+int[] ElevaArrayAlQuadrato(int[] array)
+{
+    int[] newArray = (int[])array.Clone();
+    for(int i=0; i< newArray.Length; i++)
+    {
+        newArray[i] = Quadrato(newArray[i]);
+    }
 
+    return newArray;
+}
+
+int[] numbersArray = { 1,2,3,4,5,6,7};
+int[] numbersArrayAlQuadrato = ElevaArrayAlQuadrato(numbersArray);
+StampaArrayInteri(numbersArrayAlQuadrato);
 
 //Attenzione: è importante restituire un nuovo array, e non modificare l’array come parametro della
 //funzione! Vi ricordate perchè? Pensateci (vedi slide)
