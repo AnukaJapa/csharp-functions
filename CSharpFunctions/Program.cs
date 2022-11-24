@@ -4,7 +4,6 @@
 //void StampaArrayInteri(int[] array): che preso un array di numeri interi, stampa a video il contenuto dell’array in questa forma “[elemento 1, elemento 2, elemento 3, ...]”. Potete prendere quella fatta in classe questa mattina
 
 
-int[] arrayNumeriInteri = { 1, 2, 3, 4, 5, 6, 7 };
 void StampaArrayInteri(int[]array)
 {
     string risultato = "";
@@ -29,7 +28,6 @@ int Quadrato (int numero)
     return numero*numero;
 };
 
-Console.WriteLine(Quadrato(3));
 
 //int[] ElevaArrayAlQuadrato(int[] array): che preso un array di numeri interi, restituisca un
 //nuovo array con tutti gli elementi elevati quadrato.
@@ -41,28 +39,54 @@ int[] ElevaArrayAlQuadrato(int[] array)
     {
         newArray[i] = Quadrato(newArray[i]);
     }
-
     return newArray;
 }
 
-int[] numbersArray = { 1,2,3,4,5,6,7};
-int[] numbersArrayAlQuadrato = ElevaArrayAlQuadrato(numbersArray);
-StampaArrayInteri(numbersArrayAlQuadrato);
 
-//Attenzione: è importante restituire un nuovo array, e non modificare l’array come parametro della
-//funzione! Vi ricordate perchè? Pensateci (vedi slide)
+
+
 //int sommaElementiArray(int[] array): che preso un array di numeri interi, restituisca la somma
 //totale di tutti gli elementi dell’array.
+
+int sommaElementiArray(int[] array)
+{
+    int somma = 0;
+    foreach(int number in array)
+    {
+        somma += number;
+    }
+    return somma;
+};
+
+
 //Una volta completate queste funzioni di utilità di base, e dato il seguente
-//array di numeri [2, 6, 7,5, 3, 9] già dichiarato
-//nel vostro codice, si vogliono utilizzare le funzioni per:
+//array di numeri [2, 6, 7,5, 3, 9] già dichiarato nel vostro codice, si vogliono utilizzare le funzioni per:
 //Stampare l’array di numeri fornito a video
-//Stampare l’array di numeri fornito a video, dove ogni numero è stato prima elevato
-//al quadrato (Verificare che l’array originale
-//non sia stato modificato quindi ristampare nuovamente l’array originale e verificare che sia
-//rimasto [2, 6, 7, 5, 3, 9])
+
+int[] numbersArray = { 2, 6, 7, 5, 3, 9 };
+StampaArrayInteri(numbersArray);
+
+
+
+//Stampare l’array di numeri fornito a video, dove ogni numero è stato prima elevato al quadrato (Verificare che l’array originale non sia stato modificato quindi ristampare nuovamente l’array originale e verificare che sia rimasto [2, 6, 7, 5, 3, 9])
+int[] numbersArrayAlQuadrato = ElevaArrayAlQuadrato(numbersArray);
+
+Console.WriteLine("Array elevato al quadrato : ");
+StampaArrayInteri(numbersArrayAlQuadrato);
+
+Console.WriteLine("e qua sarà originale");
+StampaArrayInteri(numbersArray);
+
 //Stampare la somma di tutti i numeri
+Console.WriteLine("SOMMA dei numeri dell'array originale : ");
+
+Console.WriteLine(sommaElementiArray(numbersArray));
+
 //Stampare la somma di tutti i numeri elevati al quadrati
+Console.WriteLine("SOMMA dei numeri dell'array al quadrato : ");
+
+Console.WriteLine(sommaElementiArray(numbersArrayAlQuadrato));
+
 //BONUS:
 //Convertire le funzioni appena dichiarate in funzioni generiche, ossia funzioni che
 //possono lavorare con array di numeri interi di lunghezza variabile, ossia debbono poter
