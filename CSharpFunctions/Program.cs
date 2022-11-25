@@ -9,20 +9,6 @@
 
 //A questo punto modificare il programma in modo che chieda all’utente quanti numeri voglia
 //inserire, e dopo di che questi vengono inseriti a mano dall’utente esternamente. Rieseguire il programma con l’input preso esternamente dall’utente.
-Console.WriteLine("Quanti numeri vuoi inserire nell'array?");
-int numeroComponentiArray = int.Parse(Console.ReadLine());
-
-int i = 0;
-int[] arrayDellUtente = new int[numeroComponentiArray];
-bool validità = false;
-
-do
-{
-Console.WriteLine($"Inserisci il numero {i+1} dell'array");
-int numeroDaInserire = int.Parse(Console.ReadLine());
-    arrayDellUtente[i] = numeroDaInserire;
-    i++;
-} while (i< numeroComponentiArray);
 
 
 void StampaArrayInteri(int[]array)
@@ -91,30 +77,26 @@ StampaArrayInteri(numbersArray);
 
 //Stampare l’array di numeri fornito a video, dove ogni numero è stato prima elevato al quadrato (Verificare che l’array originale non sia stato modificato quindi ristampare nuovamente l’array originale e verificare che sia rimasto [2, 6, 7, 5, 3, 9])
 int[] numbersArrayAlQuadrato = ElevaArrayAlQuadrato(numbersArray);
-int[] arrayDellUtenteAlQuadrato = ElevaArrayAlQuadrato(arrayDellUtente);
 
 Console.WriteLine("Array elevato al quadrato : ");
 StampaArrayInteri(numbersArrayAlQuadrato);
-StampaArrayInteri(arrayDellUtente);
 
 
 Console.WriteLine("e qua sarà originale");
 StampaArrayInteri(numbersArray);
-StampaArrayInteri(arrayDellUtente);
 
 
 //Stampare la somma di tutti i numeri
 Console.WriteLine("SOMMA dei numeri dell'array originale : ");
 
 Console.WriteLine(sommaElementiArray(numbersArray));
-Console.WriteLine(sommaElementiArray(arrayDellUtente));
 
 
 //Stampare la somma di tutti i numeri elevati al quadrati
 Console.WriteLine("SOMMA dei numeri dell'array al quadrato : ");
 
 Console.WriteLine(sommaElementiArray(numbersArrayAlQuadrato));
-Console.WriteLine(sommaElementiArray(arrayDellUtenteAlQuadrato));
+
 
 
 
